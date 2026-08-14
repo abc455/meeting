@@ -13,9 +13,9 @@
 需要同时运行三个核心服务：
 
 ```text
-8005  Qwen3-ASR-0.6B 统一 ASR 服务，用于实时会议转写和上传音频转写
+8006  Qwen3-ASR-0.6B 统一 ASR 服务，用于实时会议转写和上传音频转写
 8012  Qwen3.6-35B-A3B vLLM 服务，用于 AI 纪要
-8001  meeting-ai 后端 API
+8011  meeting-ai 后端 API
 5173  meeting-ai 前端开发服务
 ```
 
@@ -41,13 +41,14 @@ LLM_BASE_URL=http://127.0.0.1:8012/v1
 LLM_MODEL=Qwen3.6-35B-A3B-NVFP4
 LLM_API_KEY=EMPTY
 
-ASR_BASE_URL=http://127.0.0.1:8005
+ASR_BASE_URL=http://127.0.0.1:8006
 ASR_MODEL=/home/regchen/Chuyi/models/Qwen3-ASR-0.6B
 ASR_API_KEY=EMPTY
 ASR_TRANSCRIBE_PATH=/v1/audio/transcriptions
 ASR_MAX_RETRIES=2
 
-ASR_STREAM_BASE_URL=http://127.0.0.1:8005
+ASR_STREAM_BASE_URL=http://127.0.0.1:8006
+ASR_STREAM_PORT=8006
 ASR_STREAM_MODEL=/home/regchen/Chuyi/models/Qwen3-ASR-0.6B
 ASR_STREAM_GPU_MEMORY_UTILIZATION=0.12
 ASR_STREAM_MAX_MODEL_LEN=4096
@@ -79,7 +80,7 @@ cd /home/regchen/Chuyi/meeting-ai-mvp/backend
 cd /home/regchen/Chuyi/meeting-ai-mvp/backend
 conda activate meeting-ai
 pip install -r requirements.txt
-uvicorn app.main:app --host 0.0.0.0 --port 8001
+uvicorn app.main:app --host 0.0.0.0 --port 8011
 ```
 
 启动前端：

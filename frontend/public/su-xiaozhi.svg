@@ -1,0 +1,22 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">苏小智</title>
+  <desc id="desc">穿蓝色连帽衫的智能会议助手形象</desc>
+  <rect width="160" height="160" rx="36" fill="#EAF5FF"/>
+  <circle cx="80" cy="74" r="48" fill="#FFFFFF"/>
+  <path d="M46 102C50 126 62 142 80 142C98 142 110 126 114 102C106 113 94 119 80 119C66 119 54 113 46 102Z" fill="#2F8AE5"/>
+  <path d="M52 101C58 113 68 120 80 120C92 120 102 113 108 101L98 88C93 94 87 97 80 97C73 97 67 94 62 88L52 101Z" fill="#58A9F7"/>
+  <path d="M62 100L50 119" stroke="#1267B4" stroke-width="7" stroke-linecap="round"/>
+  <path d="M98 100L110 119" stroke="#1267B4" stroke-width="7" stroke-linecap="round"/>
+  <path d="M44 69C44 46.909 60.118 29 80 29C99.882 29 116 46.909 116 69V82C116 96.359 104.359 108 90 108H70C55.641 108 44 96.359 44 82V69Z" fill="#F9FCFF" stroke="#172029" stroke-width="6"/>
+  <path d="M53 72C53 58.193 64.193 47 78 47H82C95.807 47 107 58.193 107 72V78C107 87.941 98.941 96 89 96H71C61.059 96 53 87.941 53 78V72Z" fill="#172029"/>
+  <circle cx="68" cy="73" r="6" fill="#FFFFFF"/>
+  <circle cx="92" cy="73" r="6" fill="#FFFFFF"/>
+  <path d="M72 88C76.8 91.6 83.2 91.6 88 88" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M36 78C28.82 78 23 83.82 23 91C23 98.18 28.82 104 36 104H44V78H36Z" fill="#F9FCFF" stroke="#172029" stroke-width="6"/>
+  <path d="M124 78C131.18 78 137 83.82 137 91C137 98.18 131.18 104 124 104H116V78H124Z" fill="#F9FCFF" stroke="#172029" stroke-width="6"/>
+  <path d="M62 33L56 18" stroke="#172029" stroke-width="6" stroke-linecap="round"/>
+  <path d="M98 33L104 18" stroke="#172029" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="54" cy="15" r="6" fill="#58A9F7" stroke="#172029" stroke-width="4"/>
+  <circle cx="106" cy="15" r="6" fill="#58A9F7" stroke="#172029" stroke-width="4"/>
+  <path d="M65 126H95" stroke="#EAF5FF" stroke-width="5" stroke-linecap="round"/>
+</svg>

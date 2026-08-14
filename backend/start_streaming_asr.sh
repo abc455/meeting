@@ -23,4 +23,4 @@ if [ -f .env ]; then
   set +a
 fi
 
-exec uvicorn app.streaming_asr_server:app --host "${ASR_STREAM_HOST:-127.0.0.1}" --port "${ASR_STREAM_PORT:-8005}"
+exec uvicorn app.streaming_asr_server:app --host "${ASR_STREAM_HOST:-127.0.0.1}" --port "${ASR_STREAM_PORT:-8006}"

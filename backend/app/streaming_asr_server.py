@@ -18,6 +18,7 @@ from qwen_asr import Qwen3ASRModel
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
 MODEL_PATH = os.getenv("ASR_STREAM_MODEL", os.getenv("ASR_MODEL", "/home/regchen/Chuyi/models/Qwen3-ASR-0.6B"))
+FORCED_ALIGNER = os.getenv("ASR_FORCED_ALIGNER", "").strip() or None
 GPU_MEMORY_UTILIZATION = float(os.getenv("ASR_STREAM_GPU_MEMORY_UTILIZATION", "0.08"))
 UNFIXED_CHUNK_NUM = int(os.getenv("ASR_STREAM_UNFIXED_CHUNK_NUM", "4"))
 UNFIXED_TOKEN_NUM = int(os.getenv("ASR_STREAM_UNFIXED_TOKEN_NUM", "5"))
@@ -77,6 +78,7 @@ def startup() -> None:
     global asr
     asr = Qwen3ASRModel.LLM(
         model=MODEL_PATH,
+        forced_aligner=FORCED_ALIGNER,
         gpu_memory_utilization=GPU_MEMORY_UTILIZATION,
         max_model_len=MAX_MODEL_LEN,
         max_num_seqs=MAX_NUM_SEQS,
@@ -97,7 +99,7 @@ def transcriptions(
     model: str = Form(default=""),
     response_format: str = Form(default="json"),
     language: str | None = Form(default=None),
-) -> dict[str, str]:
+) -> dict:
     if asr is None:
         raise HTTPException(status_code=503, detail="ASR model not ready")
     TMP_DIR.mkdir(parents=True, exist_ok=True)
@@ -108,15 +110,28 @@ def transcriptions(
             shutil.copyfileobj(file.file, output)
         forced_language = language.strip() if language else None
         with asr_lock:
-            result = asr.transcribe(str(target), language=forced_language)[0]
+            result = asr.transcribe(
+                str(target),
+                language=forced_language,
+                return_time_stamps=bool(FORCED_ALIGNER),
+            )[0]
     except Exception as exc:
         raise HTTPException(status_code=500, detail=_error_detail(exc, "ASR 文件转写失败，模型没有返回具体错误。")) from exc
     finally:
         target.unlink(missing_ok=True)
 
+    time_stamps = getattr(result, "time_stamps", None) or []
     return {
         "text": getattr(result, "text", "") or "",
         "language": getattr(result, "language", "") or "",
+        "time_stamps": [
+            {
+                "text": getattr(item, "text", "") or "",
+                "start_time": getattr(item, "start_time", 0) or 0,
+                "end_time": getattr(item, "end_time", 0) or 0,
+            }
+            for item in time_stamps
+        ],
     }
 
 
