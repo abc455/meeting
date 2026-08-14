@@ -1,0 +1,77 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: fastapi==0.115.6 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from -r requirements.txt (line 1)) (0.115.6)
+Requirement already satisfied: uvicorn==0.32.1 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (0.32.1)
+Requirement already satisfied: httpx==0.28.1 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from -r requirements.txt (line 3)) (0.28.1)
+Requirement already satisfied: python-multipart==0.0.19 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from -r requirements.txt (line 4)) (0.0.19)
+Requirement already satisfied: python-dotenv==1.0.1 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from -r requirements.txt (line 5)) (1.0.1)
+Requirement already satisfied: starlette<0.42.0,>=0.40.0 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from fastapi==0.115.6->-r requirements.txt (line 1)) (0.41.3)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from fastapi==0.115.6->-r requirements.txt (line 1)) (2.13.4)
+Requirement already satisfied: typing-extensions>=4.8.0 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from fastapi==0.115.6->-r requirements.txt (line 1)) (4.16.0)
+Requirement already satisfied: click>=7.0 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (8.4.2)
+Requirement already satisfied: h11>=0.8 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (0.16.0)
+Requirement already satisfied: anyio in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from httpx==0.28.1->-r requirements.txt (line 3)) (4.14.2)
+Requirement already satisfied: certifi in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from httpx==0.28.1->-r requirements.txt (line 3)) (2026.7.22)
+Requirement already satisfied: httpcore==1.* in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from httpx==0.28.1->-r requirements.txt (line 3)) (1.0.9)
+Requirement already satisfied: idna in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from httpx==0.28.1->-r requirements.txt (line 3)) (3.18)
+Requirement already satisfied: httptools>=0.6.3 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (0.8.0)
+Requirement already satisfied: pyyaml>=5.1 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (6.0.3)
+Requirement already satisfied: uvloop!=0.15.0,!=0.15.1,>=0.14.0 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (0.22.1)
+Requirement already satisfied: watchfiles>=0.13 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (1.2.0)
+Requirement already satisfied: websockets>=10.4 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2)) (17.0.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.6->-r requirements.txt (line 1)) (0.8.0)
+Requirement already satisfied: pydantic-core==2.46.4 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.6->-r requirements.txt (line 1)) (2.46.4)
+Requirement already satisfied: typing-inspection>=0.4.2 in /home/regchen/miniconda3/envs/meeting-ai/lib/python3.11/site-packages (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.6->-r requirements.txt (line 1)) (0.4.4)
+INFO:     Started server process [2468338]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33540 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46798 - "POST /api/meetings/bc6549edc4e54be1862a40bc55badaab/stream/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59642 - "POST /api/meetings/bc6549edc4e54be1862a40bc55badaab/stream/chunk?session_id=6aa37085ece34b7e8b487fdd1c271b97 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51650 - "POST /api/meetings/bc6549edc4e54be1862a40bc55badaab/stream/finish?session_id=6aa37085ece34b7e8b487fdd1c271b97 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55574 - "GET /api/meetings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55584 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55586 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38904 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38910 - "GET /api/meetings/65d694fbfb834ab5878c5979814bf972 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38920 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38930 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38940 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36064 - "GET /api/meetings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36074 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56254 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36528 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36538 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36542 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36554 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36556 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36558 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36570 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36586 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36596 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36602 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36608 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36612 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36618 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36626 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36628 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36642 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36644 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/chunk?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36660 - "POST /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d/stream/finish?session_id=0e2954e030ae41019eac54822fe4527b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36672 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57564 - "GET /api/meetings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57576 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57588 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41748 - "GET /api/meetings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41762 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41764 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41776 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41778 - "GET /api/meetings/65d694fbfb834ab5878c5979814bf972 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41786 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41794 - "GET /api/meetings/65d694fbfb834ab5878c5979814bf972 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41810 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41822 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41832 - "GET /api/meetings/65d694fbfb834ab5878c5979814bf972 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50904 - "GET /api/meetings/a5a4a9bb4aef4cfdacca8e74f54e076d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48240 - "GET /api/meetings/bc6549edc4e54be1862a40bc55badaab HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48254 - "GET /api/meetings/65d694fbfb834ab5878c5979814bf972 HTTP/1.1" 200 OK

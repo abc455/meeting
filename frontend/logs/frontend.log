@@ -1,0 +1,25 @@
+
+up to date, audited 73 packages in 4s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+2 vulnerabilities (1 moderate, 1 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> dev
+> vite --host 0.0.0.0 --host 0.0.0.0 --port 5173
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+  VITE v5.4.21  ready in 89 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.10.20.174:5173/
+9:32:12 AM [vite] hmr update /src/main.tsx
+9:32:13 AM [vite] hmr invalidate /src/main.tsx Could not Fast Refresh ("true" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+9:32:13 AM [vite] page reload src/main.tsx

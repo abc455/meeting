@@ -1,0 +1,15 @@
+[Unit]
+Description=Meeting AI MVP FastAPI service
+After=network.target
+
+[Service]
+Type=simple
+User=regchen
+WorkingDirectory=/opt/meeting-ai-mvp/backend
+EnvironmentFile=/opt/meeting-ai-mvp/backend/.env
+ExecStart=/opt/meeting-ai-mvp/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8001
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
