@@ -334,6 +334,7 @@ function App() {
   const [settingsDraft, setSettingsDraft] = useState<AppSettings>(DEFAULT_SETTINGS);
   const [settingsMessage, setSettingsMessage] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [copyStatus, setCopyStatus] = useState("");
   const microphoneReady = canUseMicrophone();
 
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -751,7 +752,27 @@ function App() {
 
   async function copyMinutesDocument() {
     if (!minutesDocument.trim()) return;
-    await navigator.clipboard.writeText(minutesDocument);
+    try {
+      if (navigator.clipboard?.writeText && window.isSecureContext) {
+        await navigator.clipboard.writeText(minutesDocument);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = minutesDocument;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        textarea.style.top = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        const copied = document.execCommand("copy");
+        document.body.removeChild(textarea);
+        if (!copied) throw new Error("浏览器没有允许复制到剪贴板。");
+      }
+      setCopyStatus("已复制");
+      window.setTimeout(() => setCopyStatus(""), 1600);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "复制失败，请手动选中文档内容复制。");
+    }
   }
 
   function downloadMinutesDocument() {
@@ -1416,7 +1437,7 @@ function App() {
                           </button>
                           <button onClick={copyMinutesDocument} disabled={!minutesDocument.trim()}>
                             <Clipboard size={16} />
-                            复制
+                            {copyStatus || "复制"}
                           </button>
                           <button onClick={downloadMinutesDocument} disabled={!minutesDocument.trim()}>
                             <Download size={16} />
