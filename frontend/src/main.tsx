@@ -418,6 +418,9 @@ function App() {
     if (!id) return;
     const nextDetail = await api<MeetingDetail>(`/meetings/${id}`);
     setDetail(nextDetail);
+    setMeetings((current) =>
+      current.map((meeting) => (meeting.id === nextDetail.meeting.id ? nextDetail.meeting : meeting))
+    );
     setSummaryText(nextDetail.summary || "");
     setSummaryCards(nextDetail.summary_cards || EMPTY_SUMMARY_CARDS);
     setStageSummaries(nextDetail.stage_summaries || []);
